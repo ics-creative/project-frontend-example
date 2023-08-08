@@ -87,7 +87,7 @@ const Page = () => {
     if (yearElement.current) {
       const date = new Date();
       const year = date.getFullYear();
-      yearElement.current.textContent = String(year);
+      yearElement.current.textContent = year;
     }
 
   const layoutStyle = (tabValue: TabState) => css`
@@ -119,7 +119,7 @@ const Page = () => {
         <AppBar position="static" sx={{ p: 1 }}>
           <Toolbar>
             <Typography variant="h1" component="h1">
-              日本の都道府県別人口データ
+              タイトル
             </Typography>
           </Toolbar>
         </AppBar>

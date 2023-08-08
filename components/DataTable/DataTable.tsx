@@ -13,34 +13,18 @@ type Props = {
 };
 
 const DataTable = ({ prefPopulationList }: Props) => {
-  const columns: GridColDef[] = [
-    {
-      field: "prefName",
-      headerName: "都道府県",
-      width: 240,
-      sortComparator: sortPrefId,
-    },
-    {
-      field: "population",
-      headerName: "人口（人）",
-      width: 180,
-      sortComparator: (v1, v2) => {
-        return commaToNum(v1) - commaToNum(v2);
-      },
-    },
-    {
-      field: "populationDensity",
-      headerName: "人口密度（人/km²）",
-      width: 180,
-    },
-    {
-      field: "populationIncrease",
-      headerName: "5年間の人口増減数（人）",
-      width: 200,
-      sortComparator: (v1, v2) => {
-        return commaToNum(v1) - commaToNum(v2);
-      },
-    },
+const columns: GridColDef[] = [{field: "prefName",
+headerName: "都道府県",width: 240,sortComparator: sortPrefId,
+},{
+field: "population",headerName: "人口（人）",
+width: 180,sortComparator: (v1, v2) => {
+  return commaToNum(v1) - commaToNum(v2);
+},
+},{  field: "populationDensity",   headerName: "人口密度（人/km²）",
+      width: 180,},{field: "populationIncrease", headerName: "5年間の人口増減数（人）",width: 200,
+sortComparator: (v1, v2) => {
+  return commaToNum(v1) - commaToNum(v2);
+},  },
     {
       field: "populationIncreaseRatio",
       headerName: "5年間の人口増減率（%）",
