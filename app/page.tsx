@@ -30,7 +30,7 @@ import {
   LineController,
   UpdateMode,
 } from "chart.js";
-import { SyntheticEvent, useCallback, useEffect, useState } from "react";
+import { SyntheticEvent, useCallback, useEffect, useRef, useState } from "react";
 import GraphTab from "@/components/GraphTab";
 import { TAB_NAME, TabState } from "@/types/TabState";
 import { theme } from "./theme/theme";
@@ -82,6 +82,13 @@ const Page = () => {
     },
     [setFilteredPrefList]
   );
+
+  const yearElement = useRef<HTMLElement>(null);
+    if (yearElement.current) {
+      const date = new Date();
+      const year = date.getFullYear();
+      yearElement.current.textContent = String(year);
+    }
 
   const layoutStyle = (tabValue: TabState) => css`
     display: grid;
@@ -211,8 +218,8 @@ const Page = () => {
           component="p"
           align="center"
           sx={{ pb: 2 }}
-        >
-          example.com
+        ><span ref={yearElement}></span> - 
+         example.com
         </Typography>
       </div>
     </ThemeProvider>
