@@ -30,7 +30,13 @@ import {
   LineController,
   UpdateMode,
 } from "chart.js";
-import { SyntheticEvent, useCallback, useEffect, useRef, useState } from "react";
+import {
+  SyntheticEvent,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import GraphTab from "@/components/GraphTab";
 import { TAB_NAME, TabState } from "@/types/TabState";
 import { theme } from "./theme/theme";
@@ -84,11 +90,11 @@ const Page = () => {
   );
 
   const yearElement = useRef<HTMLElement>(null);
-    if (yearElement.current) {
-      const date = new Date();
-      const year = date.getFullYear();
-      yearElement.current.textContent = year;
-    }
+  if (yearElement.current) {
+    const date = new Date();
+    const year = date.getFullYear();
+    yearElement.current.textContent = year;
+  }
 
   const layoutStyle = (tabValue: TabState) => css`
     display: grid;
@@ -218,8 +224,8 @@ const Page = () => {
           component="p"
           align="center"
           sx={{ pb: 2 }}
-        ><span ref={yearElement}></span> - 
-         example.com
+        >
+          <span ref={yearElement}></span> - example.com
         </Typography>
       </div>
     </ThemeProvider>
